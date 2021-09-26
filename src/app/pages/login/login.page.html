@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="titulo-header ion-text-center">Skeleton APP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+    <ion-title class="titulo ion-text-center">Bienvenido!</ion-title>
+  </ion-toolbar>
+
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="formularioLogin" (ngSubmit)="onLogin()">
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input matInput type="text" formControlName="usuario">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="contrasena">
+        </mat-form-field>
+
+        <div class="ion-text-center ion-margin-top">
+          <button class="boton-login" type="submit" mat-raised-button color="primary" [disabled]="formularioLogin.invalid">INGRESAR</button>
+        </div>
+
+      </form>
+    </ion-card-content>
+    
+  </ion-card>
+
+</ion-content>

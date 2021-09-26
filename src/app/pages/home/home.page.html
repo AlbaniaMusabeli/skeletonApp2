@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="usuarioConectado">
+    <ion-chip color="secondary">
+      <ion-label>{{ usuarioConectado }}</ion-label>
+    </ion-chip>
+  </div>
+
+  <ion-segment [value]="valorElegido" scrollable (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="explaboral">
+      <ion-label>Exp Laboral</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="certificaciones">
+      <ion-label>Certificaciones</ion-label>
+    </ion-segment-button>
+    
+    <ion-segment-button value="misdatos">
+      <ion-label>Mis Datos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <div *ngIf="valorElegido == 'explaboral'">
+    <app-exp-laboral></app-exp-laboral>
+  </div>
+
+
+  <div *ngIf="valorElegido == 'certificaciones'">
+    <app-certificaciones></app-certificaciones>
+  </div>
+
+
+  <div *ngIf="valorElegido == 'misdatos'">
+    <app-mis-datos></app-mis-datos>
+  </div>
+</ion-content>
