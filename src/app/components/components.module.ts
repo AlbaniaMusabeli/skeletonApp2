@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { CertificacionesComponent } from './certificaciones/certificaciones.component';
 import { ExpLaboralComponent } from './exp-laboral/exp-laboral.component';
 import { MisDatosComponent } from './mis-datos/mis-datos.component';
+import { IonicModule } from '@ionic/angular';
+import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +16,10 @@ import { MisDatosComponent } from './mis-datos/mis-datos.component';
     MisDatosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IonicModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports:[
     CertificacionesComponent,

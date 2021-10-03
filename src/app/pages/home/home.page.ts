@@ -8,7 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
-  valorElegido: string;
   usuarioConectado: string;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
@@ -20,11 +19,14 @@ export class HomePage implements OnInit {
     })
   }
 
+  //Cuando cargue la página, el SEGMENT iniciará aqui (explaboral)
   ngOnInit() {
+    this.router.navigate(["home/explaboral"])
   }
 
   //Mostrará lo que corresponde segun el segment elegido
   segmentChanged(event){
-    this.valorElegido = event.detail.value
+    let rutaChild = event.detail.value;
+    this.router.navigate(["home/" + rutaChild])
   }
 }

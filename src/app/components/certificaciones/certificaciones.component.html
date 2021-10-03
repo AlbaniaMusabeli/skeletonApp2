@@ -1,3 +1,49 @@
-<p>
-  certificaciones works!
-</p>
+<ion-content>
+  <ion-card mode="md">
+    <ion-card-content>
+      <form [formGroup]="formCertificacion" (ngSubmit)='datosCertificacion()'>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Nombre de Certificado</mat-label>
+          <input formControlName="nombreCertificado" matInput type="text">
+        </mat-form-field>
+
+        <ion-item>
+          <ion-label position="stacked">Fecha de Obtención</ion-label>
+          <ion-input formControlName="fechaObtencion" type="date"></ion-input>
+        </ion-item>
+
+        <mat-form-field class="full-width ion-padding-top" appearance="outline">
+          <mat-label>¿El certificado vence?</mat-label>
+          <mat-select formControlName="vencimiento">
+            <mat-option (click)="clickSelect()" value="si">Sí</mat-option>
+            <mat-option (click)="clickSelect()" value="no">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        
+        <ion-item>
+          <ion-label position="stacked">Fecha de Vencimiento</ion-label>
+          <ion-input formControlName="fechaVencimiento" type="date"></ion-input>
+        </ion-item>
+
+  
+
+
+        <ion-grid class="ion-padding-top">
+          <ion-row>
+            <ion-col>
+              <button (click)="limpiar()" mat-raised-button  color="primary">Limpiar</button>
+            </ion-col>
+
+            <ion-col>
+              <button mat-raised-button color="accent" type="submit">Guardar</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

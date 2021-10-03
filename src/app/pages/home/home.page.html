@@ -2,42 +2,31 @@
   <ion-toolbar>
     <ion-title>Home</ion-title>
   </ion-toolbar>
-</ion-header>
 
-<ion-content>
-
-  <div *ngIf="usuarioConectado">
+  <ion-toolbar *ngIf="usuarioConectado">
     <ion-chip color="secondary">
       <ion-label>{{ usuarioConectado }}</ion-label>
     </ion-chip>
-  </div>
+  </ion-toolbar>
 
-  <ion-segment [value]="valorElegido" scrollable (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="explaboral">
-      <ion-label>Exp Laboral</ion-label>
-    </ion-segment-button>
+  <ion-toolbar>
+    <ion-segment value="explaboral" scrollable (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="explaboral">
+        <ion-label>Exp Laboral</ion-label>
+      </ion-segment-button>
 
-    <ion-segment-button value="certificaciones">
-      <ion-label>Certificaciones</ion-label>
-    </ion-segment-button>
-    
-    <ion-segment-button value="misdatos">
-      <ion-label>Mis Datos</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+      <ion-segment-button value="certificaciones">
+        <ion-label>Certificaciones</ion-label>
+      </ion-segment-button>
 
-
-  <div *ngIf="valorElegido == 'explaboral'">
-    <app-exp-laboral></app-exp-laboral>
-  </div>
+      <ion-segment-button value="misdatos">
+        <ion-label>Mis Datos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
 
 
-  <div *ngIf="valorElegido == 'certificaciones'">
-    <app-certificaciones></app-certificaciones>
-  </div>
-
-
-  <div *ngIf="valorElegido == 'misdatos'">
-    <app-mis-datos></app-mis-datos>
-  </div>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
 </ion-content>

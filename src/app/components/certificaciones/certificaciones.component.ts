@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-certificaciones',
@@ -7,8 +8,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificacionesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
+
+  formCertificacion = this.fb.group({
+    nombreCertificado: ['', [Validators.required]],
+    fechaObtencion: ['', [Validators.required]],
+    vencimiento: ['', [Validators.required]],
+    fechaVencimiento: [{ value: '', disabled: true }, [Validators.required]]
+
+  })
 
   ngOnInit() {}
+
+
+
+  clickSelect(){
+    if (this.formCertificacion.value.vencimiento==="si") {
+      this.formCertificacion.controls['fechaVencimiento'].enable()
+    } 
+    else if (this.formCertificacion.value.vencimiento==="no"){
+      this.formCertificacion.controls['fechaVencimiento'].disable()
+    }
+    
+  }
+
+  limpiar(){
+    this.formCertificacion.reset();
+  }
+
+
+  datosCertificacion(){
+    
+  }
+
+
+
 
 }
