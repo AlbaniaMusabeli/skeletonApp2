@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-certificaciones',
@@ -8,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class CertificacionesComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private alertCtrl: AlertController) { }
 
   formCertificacion = this.fb.group({
     nombreCertificado: ['', [Validators.required]],
@@ -36,11 +37,21 @@ export class CertificacionesComponent implements OnInit {
     this.formCertificacion.reset();
   }
 
-
+  //para mostrar el mensaje de alerta
   datosCertificacion(){
-    
+    this.presentAlert();
   }
 
+  
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'REGISTRADO',
+      message: 'Datos guardados correctamente',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 
 
 

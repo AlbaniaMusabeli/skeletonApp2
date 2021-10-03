@@ -36,11 +36,11 @@
         <ion-grid class="ion-padding-top">
           <ion-row>
             <ion-col>
-              <button (click)="limpiar()" mat-raised-button  color="primary">Limpiar</button>
+              <button (click)="limpiar()" mat-raised-button  color="primary" type="button">Limpiar</button>
             </ion-col>
 
             <ion-col>
-              <button mat-raised-button color="accent" type="submit">Guardar</button>
+              <button mat-raised-button color="accent" type="submit" [disabled]="formularioLaboral.invalid">Guardar</button>
             </ion-col>
           </ion-row>
         </ion-grid>

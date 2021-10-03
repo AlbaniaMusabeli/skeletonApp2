@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-mis-datos',
@@ -8,10 +9,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class MisDatosComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private alertCtrl: AlertController) { }
 
-  ngOnInit() {}
 
+  ngOnInit() {
+
+  }
 
 
   formularioMisDatos = this.fb.group({
@@ -26,8 +29,20 @@ export class MisDatosComponent implements OnInit {
     this.formularioMisDatos.reset();
   }
 
-  
+  //para  mostrar el mensaje de alerta
   misDatos(){
-
+    this.presentAlert();
   }
+
+
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'REGISTRADO',
+      message: 'Se guardaron los datos de ' + this.formularioMisDatos.value.nombre,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 }

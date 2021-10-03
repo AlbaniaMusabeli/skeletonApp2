@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-exp-laboral',
@@ -8,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ExpLaboralComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private alertCtrl: AlertController) { }
 
   check: boolean = false;
 
@@ -38,8 +39,19 @@ export class ExpLaboralComponent implements OnInit {
     this.formularioLaboral.reset();
   }
 
+  //para mostrar el mensaje de alerta
   datosLaboral() {
-    
+    this.presentAlert();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'REGISTRADO',
+      message: 'Datos guardados',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }

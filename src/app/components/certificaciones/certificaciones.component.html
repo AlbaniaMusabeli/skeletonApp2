@@ -20,28 +20,24 @@
             <mat-option (click)="clickSelect()" value="no">No</mat-option>
           </mat-select>
         </mat-form-field>
-
         
         <ion-item>
           <ion-label position="stacked">Fecha de Vencimiento</ion-label>
           <ion-input formControlName="fechaVencimiento" type="date"></ion-input>
         </ion-item>
 
-  
-
-
+        <!--Boton para limpiar debo indicarle que es de tipo button, sino tomaría la opcion submit-->
         <ion-grid class="ion-padding-top">
           <ion-row>
             <ion-col>
-              <button (click)="limpiar()" mat-raised-button  color="primary">Limpiar</button>
+              <button (click)="limpiar()" mat-raised-button color="primary" type="button">Limpiar</button>
             </ion-col>
 
             <ion-col>
-              <button mat-raised-button color="accent" type="submit">Guardar</button>
+              <button mat-raised-button color="accent" type="submit" [disabled]="formCertificacion.invalid">Guardar</button>
             </ion-col>
           </ion-row>
         </ion-grid>
-
 
       </form>
     </ion-card-content>
